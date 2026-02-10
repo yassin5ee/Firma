@@ -1,0 +1,204 @@
+/* Variables de couleurs */
+:root {
+    --primary-green: #2ecc71;
+    --dark-green: #27ae60;
+    --bg-light: #f4f7f6;
+    --text-dark: #333;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    /* Largeur idéale pour un formulaire */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin: 20px auto;
+}
+
+/* Header */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    float: left;
+    cursor: pointer;
+}
+
+.form-header h1 {
+    color: var(--dark-green);
+    font-size: 1.8rem;
+    clear: both;
+    /* Pour gérer le float du lien retour */
+    margin-top: 10px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s;
+    background-color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-green);
+    outline: none;
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.2);
+}
+
+/* Row for Price and Unit */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.half-width {
+    flex: 1;
+    /* Prend 50% de l'espace */
+}
+
+/* Map Placeholder Styling */
+.map-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #e9e9e9;
+    border-radius: 8px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    position: relative;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png');
+    /* Juste pour l'effet visuel */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+}
+
+.map-instruction {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--dark-green);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* File Upload Styling */
+.file-upload-wrapper {
+    position: relative;
+    height: 100px;
+    border: 2px dashed var(--primary-green);
+    border-radius: 8px;
+    background-color: #f0f9f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* Cache l'input natif moche */
+    cursor: pointer;
+}
+
+.upload-box {
+    text-align: center;
+    color: var(--dark-green);
+}
+
+.upload-box i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+/* Image Preview */
+.image-preview {
+    margin-top: 10px;
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: var(--dark-green);
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 500px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

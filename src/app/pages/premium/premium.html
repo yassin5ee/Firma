@@ -1,0 +1,92 @@
+<app-header></app-header>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>Passez à l'agriculture intelligente</h1>
+        <p>Ne cultivez plus au hasard. Utilisez la puissance de l'IA pour analyser votre sol, prévoir la rentabilité et
+            garantir le succès de vos récoltes.</p>
+    </div>
+</header>
+
+<section class="pricing-section">
+    <div class="container">
+
+        <div class="card free-card">
+            <div class="card-header">
+                <h3>Version Standard</h3>
+                <div class="price">Gratuit</div>
+                <p>Pour l'achat et la vente simples.</p>
+            </div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> Accès au Marketplace</li>
+                <li><i class="fas fa-check"></i> Publier des engrais (Vente)</li>
+                <li><i class="fas fa-check"></i> Acheter des engrais</li>
+                <li class="disabled"><i class="fas fa-times"></i> Analyse de sol par IA</li>
+                <li class="disabled"><i class="fas fa-times"></i> Prédiction de rentabilité</li>
+                <li class="disabled"><i class="fas fa-times"></i> Conseils agronomiques (pH, Eau)</li>
+            </ul>
+            <a routerLink="/" class="btn btn-secondary">Continuer en Gratuit</a>
+        </div>
+
+        <div class="card premium-card">
+            <div class="badge">RECOMMANDÉ</div>
+            <div class="card-header">
+                <h3>Agritech Premium</h3>
+                <div class="price">29 TND <span class="period">/ mois</span></div>
+                <p>La puissance de l'IA pour votre terre.</p>
+            </div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Tout ce qu'il y a dans Standard</strong></li>
+                <li><i class="fas fa-check-circle"></i> Recommandation de cultures par zone</li>
+                <li><i class="fas fa-check-circle"></i> Analyse de rentabilité personnalisée</li>
+                <li><i class="fas fa-check-circle"></i> Guide d'optimisation (pH, Irrigation, Engrais)</li>
+                <li><i class="fas fa-check-circle"></i> Support prioritaire</li>
+            </ul>
+            <a routerLink="/payment" [queryParams]="{type: 'premium', price: 29}" class="btn btn-primary">Passer à
+                Premium</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="ai-details">
+    <h2>Pourquoi passer au Premium ?</h2>
+    <div class="features-grid">
+
+        <div class="feature-box">
+            <div class="icon-wrapper">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h3>1. Zonage Intelligent</h3>
+            <p>Ne devinez plus. Notre IA analyse la géographie et l'historique de votre terre zone par zone.</p>
+            <div class="feature-example">
+                <i class="fas fa-robot"></i>
+                <span>"Dans la zone Nord (plus humide), l'IA recommande de planter des <strong>Tomates</strong> pour un
+                    rendement optimal."</span>
+            </div>
+        </div>
+
+        <div class="feature-box">
+            <div class="icon-wrapper">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>2. Rentabilité & Bonnes Pratiques</h3>
+            <p>Vous voulez planter quelque chose de précis ? L'IA calcule si c'est rentable et vous dit comment réussir.
+            </p>
+            <div class="checklist">
+                <h4>Exemple : Vous voulez planter des Fraises</h4>
+                <ul>
+                    <li class="warning"><i class="fas fa-exclamation-triangle"></i> Rentabilité actuelle : Faible</li>
+                    <li class="success"><i class="fas fa-leaf"></i> <strong>Solution IA :</strong> Ajoutez 20kg de
+                        compost azoté.</li>
+                    <li class="success"><i class="fas fa-tint"></i> <strong>Irrigation :</strong> Augmentez l'eau de
+                        10%.</li>
+                    <li class="success"><i class="fas fa-vial"></i> <strong>pH :</strong> Réduisez le pH à 6.5.</li>
+                    <li class="result"><i class="fas fa-coins"></i> <strong>Résultat :</strong> Rentabilité projetée
+                        +40%</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,282 @@
+:root {
+    --primary-green: #2ecc71;
+    --dark-green: #27ae60;
+    --text-dark: #333;
+    --bg-light: #f4f7f6;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.top-nav {
+    padding: 20px 5%;
+    background: white;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* Layout Principal Grid */
+.product-container {
+    max-width: 1100px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Deux colonnes égales */
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* --- Colonne Gauche --- */
+.image-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.product-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.category-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--primary-green);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.seller-card,
+.location-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.seller-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background: #eef2f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.seller-name {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.seller-rating {
+    font-size: 0.9rem;
+    color: #f39c12;
+    /* Or */
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-contact {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.phone {
+    background: #eef2f5;
+    color: #333;
+}
+
+.email {
+    background: white;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 150px;
+    background: #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Colonne Droite --- */
+.product-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--dark-green);
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.price-value {
+    font-weight: bold;
+    color: #333;
+}
+
+.unit {
+    font-size: 1rem;
+    color: #888;
+}
+
+.description-section {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* --- Boîte d'Achat (Calculateur) --- */
+.purchase-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--primary-green);
+    box-shadow: 0 10px 30px rgba(46, 204, 113, 0.15);
+}
+
+.stock-info {
+    color: #27ae60;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    background: #eafaf1;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.slider-container {
+    margin: 20px 0;
+}
+
+.slider-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.highlight {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+}
+
+/* Style du Range Slider */
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: var(--primary-green);
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+.total-calculation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #ddd;
+    font-size: 1.2rem;
+}
+
+.total-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+.btn-buy {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--dark-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-buy:hover {
+    background: var(--primary-green);
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: 1fr;
+        /* Une seule colonne sur mobile */
+    }
+
+    .product-img {
+        height: 250px;
+    }
+}

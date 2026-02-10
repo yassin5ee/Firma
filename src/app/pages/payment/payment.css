@@ -1,0 +1,236 @@
+:root {
+    --primary-green: #2ecc71;
+    --dark-bg: #2c3e50;
+    --light-bg: #f8f9fa;
+    --text-color: #333;
+    --card-gradient: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.payment-wrapper {
+    display: flex;
+    width: 900px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+}
+
+/* Partie Gauche : Résumé (Sombre) */
+.order-info {
+    background-color: var(--dark-bg);
+    color: white;
+    width: 40%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+}
+
+.item-details {
+    margin-bottom: auto;
+}
+
+.item-details p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.item-details .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.total-row {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.total-amount {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
+.secure-badge {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Partie Droite : Formulaire (Clair) */
+.payment-form-container {
+    width: 60%;
+    padding: 40px;
+    background: white;
+    position: relative;
+}
+
+/* Simulation Carte Bancaire Visuelle */
+.card-visual {
+    background: var(--card-gradient);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    height: 180px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background: #f1c40f;
+    border-radius: 5px;
+}
+
+.card-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.card-number-display {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Styles du formulaire */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.half {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    /* Padding left pour l'icône */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.half input {
+    padding-left: 15px;
+    /* Pas d'icône pour date et CVC */
+}
+
+input:focus {
+    border-color: var(--primary-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 38px;
+    color: #999;
+}
+
+.tooltip-icon {
+    position: absolute;
+    right: -25px;
+    top: 38px;
+    color: #bbb;
+    cursor: help;
+}
+
+/* Bouton Payer */
+.pay-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--dark-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.pay-btn:hover {
+    background-color: #1a252f;
+}
+
+.cancel-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.cancel-link:hover {
+    color: #666;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .payment-wrapper {
+        flex-direction: column;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .order-info,
+    .payment-form-container {
+        width: 100%;
+    }
+
+    .order-info {
+        padding: 20px;
+    }
+}

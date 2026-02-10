@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<div class="payment-wrapper">
+
+    <div class="order-info">
+        <h2>Résumé de la commande</h2>
+        <div class="item-details">
+            <p id="item-name">{{ itemName }}</p>
+            <span class="price" id="item-price">{{ itemPrice }} TND</span>
+        </div>
+        <div class="total-row">
+            <span>Total à payer</span>
+            <span class="total-amount" id="total-amount">{{ totalAmount }} TND</span>
+        </div>
+        <div class="secure-badge">
+            <i class="fas fa-lock"></i> Paiement 100% Sécurisé (SSL)
+        </div>
+    </div>
+
+    <div class="payment-form-container">
+
+        <div class="card-visual">
+            <div class="card-chip"></div>
+            <div class="card-logo">VISA</div>
+            <div class="card-number-display">{{ cardNumber || '•••• •••• •••• ••••' }}</div>
+            <div class="card-details">
+                <div class="card-holder">{{ cardHolder || 'NOM DU TITULAIRE' }}</div>
+                <div class="card-expires">{{ cardExpiry || 'MM/YY' }}</div>
+            </div>
+        </div>
+
+        <form (ngSubmit)="onPay()" #paymentForm="ngForm">
+            <div class="input-group">
+                <label>Titulaire de la carte</label>
+                <input type="text" placeholder="M. Foulen Ben Foulen" required [(ngModel)]="cardHolder"
+                    name="cardHolder">
+                <i class="fas fa-user input-icon"></i>
+            </div>
+
+            <div class="input-group">
+                <label>Numéro de carte</label>
+                <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required
+                    [(ngModel)]="cardNumber" (input)="formatCardNumber($event)" name="cardNumber">
+                <i class="fas fa-credit-card input-icon"></i>
+            </div>
+
+            <div class="row">
+                <div class="input-group half">
+                    <label>Expiration</label>
+                    <input type="text" placeholder="MM/AA" maxlength="5" required [(ngModel)]="cardExpiry"
+                        name="cardExpiry">
+                </div>
+                <div class="input-group half">
+                    <label>CVC / CVV</label>
+                    <input type="password" placeholder="123" maxlength="3" required [(ngModel)]="cardCvc"
+                        name="cardCvc">
+                    <i class="fas fa-question-circle tooltip-icon" title="Les 3 derniers chiffres au dos"></i>
+                </div>
+            </div>
+
+            <button type="submit" class="pay-btn" id="payButton" [disabled]="processing"
+                [style.opacity]="processing ? 0.7 : 1">
+                <span *ngIf="!processing">Payer <span id="btn-amount">{{ totalAmount }} TND</span> <i
+                        class="fas fa-arrow-right"></i></span>
+                <span *ngIf="processing"><i class="fas fa-spinner fa-spin"></i> Traitement...</span>
+            </button>
+
+            <a (click)="cancel()" class="cancel-link" style="cursor: pointer;">Annuler la transaction</a>
+        </form>
+    </div>
+</div>

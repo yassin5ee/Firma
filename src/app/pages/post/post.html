@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<div class="container">
+    <header class="form-header">
+        <a routerLink="/market" class="back-link"><i class="fas fa-arrow-left"></i> Retour</a>
+        <h1>Vendre un produit</h1>
+        <p>Remplissez ce formulaire pour mettre en vente vos matières organiques.</p>
+    </header>
+
+    <form (ngSubmit)="onSubmit()" #postForm="ngForm">
+
+        <div class="form-group">
+            <label for="category">Type de produit</label>
+            <select id="category" name="category" required [(ngModel)]="formData.category">
+                <option value="" disabled selected>Choisir une catégorie...</option>
+                <option value="fumier">Fumier</option>
+                <option value="liquide">Déchets Liquides / Purin</option>
+                <option value="compost">Compost</option>
+                <option value="cendres">Cendres</option>
+                <option value="biomasse">Biomasse végétale</option>
+                <option value="autre">Autre</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Nom de l'article</label>
+            <input type="text" id="title" name="title" placeholder="Ex: Fumier de cheval bio - 5 Tonnes" required
+                [(ngModel)]="formData.title">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description détaillée</label>
+            <textarea id="description" name="description" rows="4"
+                placeholder="Décrivez la qualité, l'origine et la composition..." required
+                [(ngModel)]="formData.description"></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label for="price">Prix par unité (TND)</label>
+                <input type="number" id="price" name="price" placeholder="Ex: 50" required [(ngModel)]="formData.price">
+            </div>
+            <div class="form-group half-width">
+                <label for="unit">Unité de mesure</label>
+                <select id="unit" name="unit" required [(ngModel)]="formData.unit">
+                    <option value="tonne">Par Tonne</option>
+                    <option value="kg">Par Kg</option>
+                    <option value="m3">Par Mètre cube (m³)</option>
+                    <option value="bidon">Par Bidon (20L)</option>
+                    <option value="remorque">Par Remorque</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Photo du produit</label>
+            <div class="file-upload-wrapper">
+                <input type="file" id="productImage" name="productImage" accept="image/*"
+                    (change)="onFileChange($event)">
+                <div class="upload-box" *ngIf="!imagePreview">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Glissez une photo ou cliquez pour parcourir</p>
+                </div>
+            </div>
+            <div id="imagePreview" class="image-preview" *ngIf="imagePreview">
+                <img [src]="imagePreview" alt="Aperçu">
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="submitting">
+            {{ submitting ? 'Publication en cours...' : "Publier l'annonce" }}
+        </button>
+    </form>
+</div>
