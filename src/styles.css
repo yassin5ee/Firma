@@ -1,0 +1,28 @@
+/* --- Variables de couleurs --- */
+:root {
+    --primary-green: #2ecc71;
+    --dark-green: #27ae60;
+    --earth-brown: #795548;
+    --light-bg: #f4f7f6;
+    --text-dark: #333;
+    --white: #ffffff;
+}
+
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Common Button Styles --- */
+button {
+    cursor: pointer;
+}
