@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './shared/auth.guard';
 import { HomeComponent } from './pages/home/home';
 import { LoginComponent } from './pages/login/login';
 import { SignupComponent } from './pages/signup/signup';
@@ -17,7 +18,7 @@ export const routes: Routes = [
     { path: 'recom', component: RecomComponent },
     { path: 'detail', component: DetailComponent },
     { path: 'payment', component: PaymentComponent },
-    { path: 'post', component: PostComponent },
-    { path: 'premium', component: PremiumComponent },
+    { path: 'post', component: PostComponent, canActivate: [AuthGuard] },
+    { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard] },
     { path: '**', redirectTo: '' }
 ];

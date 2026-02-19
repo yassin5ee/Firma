@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: firma-backend
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/firma"
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+jwt:
+  # Base64-encoded 256-bit key — stable across restarts
+  # echo -n "firma2026-secret-jwt-key-32bytes!" | base64
+  secret: ZmlybWEyMDI2LXNlY3JldC1qd3Qta2V5LTMyYnl0ZXMh
+  expiration-seconds: 86400   # 24 h
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

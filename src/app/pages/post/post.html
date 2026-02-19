@@ -53,6 +53,16 @@
         </div>
 
         <div class="form-group">
+            <label for="region">Zone géographique</label>
+            <select id="region" name="region" required [(ngModel)]="formData.region">
+                <option value="" disabled selected>Choisir une zone...</option>
+                <option value="nord">Zone Nord</option>
+                <option value="centre">Zone Centre</option>
+                <option value="sud">Zone Sud</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label>Photo du produit</label>
             <div class="file-upload-wrapper">
                 <input type="file" id="productImage" name="productImage" accept="image/*"
@@ -67,7 +77,7 @@
             </div>
         </div>
 
-        <button type="submit" class="submit-btn" [disabled]="submitting">
+        <button type="submit" class="submit-btn" [disabled]="submitting || !imageFile || !formData.title || !formData.category || !formData.description || !formData.price || !formData.region">
             {{ submitting ? 'Publication en cours...' : "Publier l'annonce" }}
         </button>
     </form>

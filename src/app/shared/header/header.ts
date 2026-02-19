@@ -1,45 +1,63 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [RouterLink, RouterLinkActive],
+    imports: [RouterLink, RouterLinkActive, NgIf, AsyncPipe],
     template: `
     <nav class="navbar">
         <div class="logo" routerLink="/" style="cursor: pointer;">
             <i class="fa-solid fa-leaf"></i> Firma
         </div>
         
-        <div class="nav-menu">
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
-                <i class="fa-solid fa-home"></i> Accueil
-            </a>
-            <a routerLink="/market" routerLinkActive="active" class="nav-link">
-                <i class="fa-solid fa-store"></i> Marketplace
-            </a>
-            <a routerLink="/recom" routerLinkActive="active" class="nav-link">
-                <i class="fa-solid fa-chart-line"></i> Analyses
-            </a>
-            <a routerLink="/post" routerLinkActive="active" class="nav-link">
-                <i class="fa-solid fa-plus-circle"></i> Vendre
-            </a>
-            <a routerLink="/premium" routerLinkActive="active" class="nav-link">
-                <i class="fa-solid fa-crown"></i> Premium
-            </a>
-        </div>
+        <ng-container *ngIf="(auth.currentUser$ | async) as user; else guestMenu">
+            <div class="nav-menu">
+                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                    <i class="fa-solid fa-home"></i> Accueil
+                </a>
+                <a routerLink="/market" routerLinkActive="active" class="nav-link">
+                    <i class="fa-solid fa-store"></i> Marketplace
+                </a>
+                <a routerLink="/recom" routerLinkActive="active" class="nav-link">
+                    <i class="fa-solid fa-chart-line"></i> Analyses
+                </a>
+                <a routerLink="/post" routerLinkActive="active" class="nav-link">
+                    <i class="fa-solid fa-plus-circle"></i> Vendre
+                </a>
+                <a routerLink="/premium" routerLinkActive="active" class="nav-link">
+                    <i class="fa-solid fa-crown"></i> Premium
+                </a>
+            </div>
+        </ng-container>
+        <ng-template #guestMenu>
+            <div class="nav-menu">
+                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                    <i class="fa-solid fa-home"></i> Accueil
+                </a>
+            </div>
+        </ng-template>
 
         <div class="nav-buttons">
-            <a routerLink="/login">
-                <button class="btn-login">
-                    <i class="fa-solid fa-sign-in-alt"></i> Connexion
+            <ng-container *ngIf="(auth.currentUser$ | async) as user; else loggedOut">
+                <button class="btn-login" (click)="logout()">
+                    <i class="fa-solid fa-user"></i> {{ user.firstName || user.email }}
                 </button>
-            </a>
-            <a routerLink="/signup">
-                <button class="btn-signup">
-                    <i class="fa-solid fa-user-plus"></i> S'inscrire
-                </button>
-            </a>
+            </ng-container>
+            <ng-template #loggedOut>
+                <a routerLink="/login">
+                    <button class="btn-login">
+                        <i class="fa-solid fa-sign-in-alt"></i> Connexion
+                    </button>
+                </a>
+                <a routerLink="/signup">
+                    <button class="btn-signup">
+                        <i class="fa-solid fa-user-plus"></i> S'inscrire
+                    </button>
+                </a>
+            </ng-template>
         </div>
     </nav>
   `,
@@ -174,4 +192,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     }
   `]
 })
-export class HeaderComponent { }
+export class HeaderComponent {
+    constructor(public auth: AuthService, private router: Router) {}
+
+    logout() {
+        this.auth.logout();
+        this.router.navigate(['/']);
+    }
+}
