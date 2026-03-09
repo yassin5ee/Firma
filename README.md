@@ -7,7 +7,7 @@ This project was done using [Angular CLI](https://github.com/angular/angular-cli
 To start the Frontend
 
 ```bash
-npm start
+npm run start
 ```
 To start the Backend
 
