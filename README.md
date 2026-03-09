@@ -1,22 +1,22 @@
-# MyApp
+# Firma
 
-This project was done using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+Project Made With Angular and Spring Boot and MongoDB
 
-## Development server
+## Running the Frontend
 
-To start a local development server, run:
+To run the frontend on the root folder , run:
 
 ```bash
-ng serve
+npm run start
 ```
 
 
 ## Building
 
-To build the project run:
+To run the backend, get in the backend folder inside the root folder and run:
 
 ```bash
-ng build
+mvn spring-boot:run
 ```
 
 
