@@ -11,7 +11,7 @@ npm run start
 ```
 
 
-## Building
+## Running the Backend
 
 To run the backend, get in the backend folder inside the root folder and run:
 
