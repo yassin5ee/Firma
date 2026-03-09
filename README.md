@@ -2,7 +2,7 @@
 
 Project Made With Angular and Spring Boot and MongoDB
 
-## Running the Frontend
+## Running the Frontend.
 
 To run the frontend on the root folder , run:
 
@@ -11,7 +11,7 @@ npm run start
 ```
 
 
-## Running the Backend
+## Running the Backend.
 
 To run the backend, get in the backend folder inside the root folder and run:
 
